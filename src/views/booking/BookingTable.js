@@ -113,16 +113,6 @@ const BookingTable = ({ bookings }) => {
 	};
 
 	return (
-		// <div data-test='request-table' className='table-responsive my-4'>
-		// 	<table className='table thead-borderless booking-table'>
-		// 		<thead className='header'>
-		// 			<tr data-testid='request-list-container'>{renderTableHeader()}</tr>
-		// 		</thead>
-		// 		<tbody className='content' data-testid='content'>
-		// 			{renderTableData()}
-		// 		</tbody>
-		// 	</table>
-		// </div>
 		<ul data-test='request-table' className='responsive-table'>
 			{renderTableHeader()}
 			{renderTableData()}

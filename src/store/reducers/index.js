@@ -33,6 +33,7 @@ import feedbackReducer from './feedbackReducer';
 import paymentsReducer from './paymentsReducer';
 import profileCardsReducer from './profileCardsReducer';
 import documentsReducer from './documentsReducer';
+import twoFactorAuthReducer from './twoFactorAuthReducer';
 
 const reducers = combineReducers({
 	signupState: signupReducer,
@@ -69,6 +70,7 @@ const reducers = combineReducers({
 	bookingPaymentState: paymentsReducer,
 	profileCardsState: profileCardsReducer,
 	documentsState: documentsReducer,
+	twoFactorAuthState: twoFactorAuthReducer,
 });
 
 export default reducers;

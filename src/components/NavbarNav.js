@@ -6,21 +6,28 @@ import { connect } from 'react-redux';
 import NavLinkItem from './templates/NavLinkItem';
 import UserAccount from './UserAccount';
 import { setPath } from '../store/actions/navbar/navbarActions';
+import { accountLinks } from '../utils/userAccountLinks';
 
 export const NavbarNav = ({
 	navItems,
 	isAuthenticated,
 	notifications,
+	// eslint-disable-next-line no-shadow
 	setPath,
+	twoFAVerified,
 }) => {
 	const hasUserData = !!localStorage.bn_user_data;
-	useEffect(() => {}, [isAuthenticated]);
-
 	const history = useHistory();
 
 	useEffect(() => {
 		setPath(history.location.pathname);
 	}, [history.location.pathname]);
+
+	let role = '';
+	if (localStorage.bn_user_data) {
+		role = JSON.parse(localStorage.getItem('bn_user_data')).role;
+	}
+
 	return (
 		<nav
 			data-testid='navbar-nav'
@@ -50,19 +57,34 @@ export const NavbarNav = ({
 					))}
 				</ul>
 				{(isAuthenticated || hasUserData) && (
-					<ul
-						data-testid='other-links'
-						className='navbar-nav ml-auto py-4 py-md-0'
-					>
-						{/* <NavLinkItem linkText='Public chat' icon='comments' /> */}
-						<NavLinkItem
-							linkText='&nbsp;'
-							icon='bell-o bell-icon small-icon'
-							haspopup
-							notifications={notifications}
-						/>
-						<UserAccount />
-					</ul>
+					<>
+						{twoFAVerified === false ? (
+							<ul
+								data-testid='other-links'
+								className='navbar-nav ml-auto py-4 py-md-0'
+							>
+								<UserAccount items={[]} />
+							</ul>
+						) : (
+							<ul
+								data-testid='other-links'
+								className='navbar-nav ml-auto py-4 py-md-0'
+							>
+								<NavLinkItem
+									linkText='&nbsp;'
+									icon='bell-o bell-icon small-icon'
+									haspopup
+									notifications={notifications}
+								/>
+								<UserAccount
+									items={[
+										...accountLinks.general,
+										...(role && accountLinks[role]),
+									]}
+								/>
+							</ul>
+						)}
+					</>
 				)}
 			</div>
 		</nav>

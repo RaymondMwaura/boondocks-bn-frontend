@@ -37,6 +37,8 @@ import setAuthenticate from './store/actions/authenticateAction';
 import { nowSeconds } from './lib/time';
 import BookingPayment from './components/payments/BookingPayment';
 import TravelDocuments from './components/TravelDocuments';
+import LoginTwoFAPage from './views/LoginTwoFAPage';
+import SettingsPage from './views/settings/SettingsPage';
 
 /**
  * App component
@@ -145,6 +147,8 @@ export const App = ({ isAuthenticated, setAuthenticate, updateNavbar }) => {
 					<ProtectedRoute path='/requests' exact component={RequestPage} />
 					<ProtectedRoute path='/booking' exact component={ViewBooking} />
 					<ProtectedRoute path='/users' component={UsersContainer} />
+					<ProtectedRoute path='/login-2-fa' exact component={LoginTwoFAPage} />
+					<ProtectedRoute path='/settings' component={SettingsPage} />
 					<Redirect exact from='/' to='home' />
 					<Route component={NotFound} />
 				</Switch>

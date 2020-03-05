@@ -34,14 +34,11 @@ export class Login extends Component {
 		e.preventDefault();
 		const { props } = this;
 		const { email, password } = this.state;
-		this.setState({
-			checkError: 'was-validated',
-		});
+		this.setState({ checkError: 'was-validated' });
 		if (e.target.checkValidity()) {
 			const data = { email, password };
 			props.login(data);
 		}
-		props.updateNavbar();
 	}
 
 	render() {
@@ -50,6 +47,11 @@ export class Login extends Component {
 		const { loadingData } = this.props;
 		const { buttonLoading } = loadingData;
 		if (localStorage.bn_user_data) {
+			if (localStorage.bn_user_2fa) {
+				return <Redirect to='/login-2-fa' />;
+			}
+			const { props } = this;
+			props.updateNavbar();
 			return <Redirect to='/home' />;
 		}
 		return (

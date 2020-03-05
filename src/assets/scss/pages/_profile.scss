@@ -80,9 +80,8 @@
 
 @media(max-width: 48rem) {
   .grid-input {
-    margin: 0rem 0 0rem !important;
+    margin: 0 0 0 !important;
     display: grid !important;
-    // grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)) !important;
     grid-gap: .1rem !important;
     & > * {
       margin: 1rem 3rem;

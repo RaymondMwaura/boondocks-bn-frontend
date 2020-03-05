@@ -1,0 +1,15 @@
+input[type="number"] {
+  &.two-fa-token {
+    &::-webkit-input-placeholder,
+    &::placeholder,
+    &:-moz-placeholder {
+      text-align: center !important;
+    }
+  }
+}
+
+img{
+  &.two-fa-image {
+    height: 200px;
+  }
+}

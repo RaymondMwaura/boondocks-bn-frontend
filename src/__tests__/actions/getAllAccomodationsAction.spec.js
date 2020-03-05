@@ -192,5 +192,4 @@ describe('Create accomodations Actions Test Suite', () => {
       expect(calledActions).toEqual(expectedActions);
     });
   });
-
-}); 
+});

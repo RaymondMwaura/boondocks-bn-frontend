@@ -22,13 +22,11 @@ export const getAllHotels = () => async (dispatch, getState) => {
 		}
 		const res = await apiCall.get(`/hotels`);
 		dispatch(actionFunc(FETCH_HOTEL_SUCCESS, res.data));
-		// trigger re-render: to revisit
-
 		if (localStorage.bn_user_data !== undefined) {
 			const { role } = JSON.parse(localStorage.bn_user_data);
 			const { stats } = getState().profileCardsState;
 
-			stats[role] = stats[role].filter(item => item.data != 'hotel');
+			stats[role] = stats[role].filter(item => item.data !== 'hotel');
 
 			dispatch(
 				actionFunc(SET_STATS, {
@@ -67,7 +65,6 @@ export const getHotel = id => async dispatch => {
 		}
 		const res = await getHotelById(id);
 		dispatch(actionFunc(FETCH_SINGLE_HOTEL_SUCCESS, res.data));
-		// trigger re-render: to revisit
 		if (userId !== undefined) {
 			dispatch(getRatingData(userId));
 		}

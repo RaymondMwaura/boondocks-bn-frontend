@@ -182,7 +182,6 @@ button {
  position: relative;
  margin: 5px 0 5px 0;
  width: 50%;
-//  font-family: 'Roboto';
  font-size: 12px;
  line-height: 15px;
  font-weight: 500;
@@ -236,12 +235,11 @@ button {
 .chat_converse {
  position: relative;
    background: #fff;
-   margin: 6px 0 0px 0;
+   margin: 6px 0 0 0;
    height: 400px;
    min-height: 0;
    font-size: 12px;
    line-height: 18px;
-  //  overflow-y: scroll;
    width: 100%;
    float: right;
 }

@@ -12,9 +12,16 @@ const useChat = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const token = getToken();
-		socketRef.current = socketClient(process.env.API_URL, {
+
+		const connectionOptions = {
+			'force new connection': true,
+			reconnectionAttempts: 'Infinity',
+			timeout: 10000,
 			query: { token },
-		});
+		};
+
+		socketRef.current = socketClient(process.env.API_URL, connectionOptions);
+		// eslint-disable-next-line no-shadow
 		socketRef.current.on('getting', ({ messages }) => {
 			const formatMessages = messages.map(message => ({
 				id: message.id,

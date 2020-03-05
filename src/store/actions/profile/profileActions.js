@@ -19,7 +19,8 @@ import Toast from '../../../lib/toast';
 
 /**
  * Fetch user profile and dispatch action on success
- * @param {Number} userId
+ * @param userId
+ * @param creatingRequest
  * @returns {function(...[*]=)}
  */
 const fetchUserProfile = (
@@ -42,6 +43,7 @@ const fetchUserProfile = (
 								profile.lineManager === 'none' ? 0 : profile.lineManager,
 							email: profile.email,
 							remember: profile.remember,
+							profilePicture: profile.profilePicture,
 					  })
 					: profile),
 				birthDate: profile.birthDate && profile.birthDate.split('T')[0],

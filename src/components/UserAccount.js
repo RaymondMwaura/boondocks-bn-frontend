@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { accountLinks } from '../utils/userAccountLinks';
+import PropTypes from 'prop-types';
 import Logout from './auth/Logout';
 import { fetchUserProfile } from '../store/actions/profile/profileActions';
 
 /**
  * UserAccount
+ * @param items
  * @returns {*}
  * @constructor
  */
-const UserAccount = () => {
+const UserAccount = ({ items }) => {
 	const [currentPic, setCurrentPic] = useState(undefined);
 	const dispatch = useDispatch();
 	const profilePicture = useSelector(
@@ -31,11 +33,6 @@ const UserAccount = () => {
 			setCurrentPic(profilePicture);
 		}
 	}, [profilePicture]);
-
-	let role = '';
-	if (localStorage.bn_user_data) {
-		role = JSON.parse(localStorage.getItem('bn_user_data')).role;
-	}
 
 	return (
 		<li
@@ -61,17 +58,19 @@ const UserAccount = () => {
 				)}
 			</div>
 			<div className='dropdown-menu'>
-				{[...accountLinks.general, ...(role && accountLinks[role])].map(
-					(item, idx) => (
-						<Link key={idx} className='dropdown-item' to={item.linkRoute}>
-							{item.linkText}
-						</Link>
-					),
-				)}
+				{items.map((item, idx) => (
+					<Link key={idx} className='dropdown-item' to={item.linkRoute}>
+						{item.linkText}
+					</Link>
+				))}
 				<Logout />
 			</div>
 		</li>
 	);
+};
+
+UserAccount.propTypes = {
+	items: PropTypes.array.isRequired,
 };
 
 export default UserAccount;

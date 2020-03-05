@@ -2,6 +2,7 @@
 @use '../base/typography';
 @use "../base/normalize";
 @use '../components/footer';
+@use '../components/icons';
 @use '../components/buttons';
 @use '../components/forms';
 @use '../components/login';
@@ -19,6 +20,7 @@
 @use '../components/travelstats';
 @use '../components/like';
 @use './travelPage';
+@use 'loginTwoFAPage';
 @use '../components/rateAccomodation';
 @use '../components/hotel';
 @use './notfoundpage';

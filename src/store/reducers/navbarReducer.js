@@ -4,6 +4,7 @@ const initialState = {
 	navItems: [],
 	notifications: [],
 	currentPath: '',
+	twoFAVerified: false,
 };
 
 const navbarReducer = (state = initialState, { type, payload }) => {
@@ -13,6 +14,7 @@ const navbarReducer = (state = initialState, { type, payload }) => {
 				...state,
 				navItems: payload.navItems,
 				notifications: payload.notificationsItems,
+				twoFAVerified: payload.twoFAVerified,
 			};
 
 		case NAVBAR_TYPES.NAVBAR_PATH_CHANGED:

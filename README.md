@@ -1,5 +1,7 @@
 # Barefoot Nomad (Front-end)
-[![Build Status](https://travis-ci.org/andela/boondocks-bn-frontend.svg?branch=develop)](https://travis-ci.org/andela/boondocks-bn-frontend) [![Maintainability](https://api.codeclimate.com/v1/badges/12507ac7cc8a8b5f657e/maintainability)](https://codeclimate.com/github/andela/boondocks-bn-frontend/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/12507ac7cc8a8b5f657e/test_coverage)](https://codeclimate.com/github/andela/boondocks-bn-frontend/test_coverage)
+[![Build Status](https://travis-ci.org/RaymondMwaura/boondocks-bn-frontend.svg?branch=develop)](https://travis-ci.org/RaymondMwaura/boondocks-bn-frontend)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ac62c7b5497ad607f769/maintainability)](https://codeclimate.com/github/RaymondMwaura/boondocks-bn-frontend/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ac62c7b5497ad607f769/test_coverage)](https://codeclimate.com/github/RaymondMwaura/boondocks-bn-frontend/test_coverage)
 
 ## Vision :telescope:
 Make company global travel and accommodation easy and convenient for the strong workforce of savvy members of staff by leveraging the modern web
@@ -15,7 +17,7 @@ Make company global travel and accommodation easy and convenient for the strong 
 
 ## Setting up the application :wrench:
 Clone the project repo to your preferred location
-```https://github.com/andela/boondocks-bn-frontend.git```
+```https://github.com/RaymondMwaura/boondocks-bn-frontend.git```
 
 Install npm dependencies
 
@@ -40,9 +42,7 @@ Build the project with ```npm run build```
 Start the built project with ```npm start```
 
 ## Application deployed on 🚀
-
-- [Heroku Staging](https://boondocks-bn-frontend-staging.herokuapp.com)
-- [Heroku Production](https://boondocks-bn-frontend.herokuapp.com/)
+[Heroku Production](https://my-barefoot-nomad-frontend.herokuapp.com/)
 
 ## View components documentation :page_facing_up:
 Start the storybook dashboard with ```npm run storybook```

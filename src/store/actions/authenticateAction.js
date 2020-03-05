@@ -18,6 +18,7 @@ const setAuthenticate = isAuthenticated => dispatch => {
 
 			localStorage.removeItem('bn_user_data');
 			localStorage.removeItem('name_initials');
+			localStorage.removeItem('bn_user_2fa');
 			dispatch(actionFunc(NOT_AUTHENTICATED));
 		}
 	}

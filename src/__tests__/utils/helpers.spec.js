@@ -1,15 +1,15 @@
-import { nullToStr } from '../../lib/helpers';
+import { nullToStr } from "../../lib/helpers";
 
 describe('Helpers', () => {
 	it('nullToStr() should convert null values into empty string', () => {
 		const inObj = {
 			firstName: null,
-			lastName: 'John'
+			lastName: "John"
 		};
 
 		const outObj = {
-			firstName: '',
-			lastName: 'John'
+			firstName: "",
+			lastName: "John"
 		};
 
 		expect(nullToStr(inObj)).toEqual(outObj);

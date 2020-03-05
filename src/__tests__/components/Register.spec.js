@@ -57,7 +57,6 @@ describe('<Register /> Test Suite', () => {
       target: {checkValidity: () => false}
     });
     expect(handleSubmitSpy).toHaveBeenCalled();
-    // expect(signupSpy).not.toHaveBeenCalled();
   });
 
   it('Should submit valid signup form', () => {

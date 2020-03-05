@@ -217,7 +217,6 @@ class EditProfile extends Component {
 							}
 							classNames='form-control form-control-sm'
 						/>
-						<span />
 					</div>
 					<div className='row justify-content-center'>
 						<LoadingButton
