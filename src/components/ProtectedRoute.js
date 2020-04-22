@@ -14,7 +14,7 @@ import JWTDecode from "jwt-decode";
 import queryString from "query-string";
 import toast from "../lib/toast";
 import setAuthenticate from "../store/actions/authenticateAction";
-import { storeToken } from "../helpers/authHelper";
+import { storeToken, decodeToken } from "../helpers/authHelper";
 import { nowSeconds } from "../lib/time";
 import check2FA from "../utils/check2FA";
 /**
@@ -32,12 +32,13 @@ export const ProtectedRoute = ({
 }) => {
 	setAuthState(true);
 
-	const queries = queryString.parse(rest.location.query);
+	const queries = queryString.parse(rest.location.search);
 
 	let userData;
 
 	if (queries.token) {
 		storeToken(queries.token);
+		decodeToken(queries.token);
 		userData = JWTDecode(queries.token);
 		check2FA(queries);
 	}

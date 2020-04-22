@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import HotelCard from '../components/accomodations/HotelCard';
 // eslint-disable-next-line max-len
 import { getAllHotels } from '../store/actions/accomodations/getAccomodationActions';
@@ -9,6 +10,8 @@ import setAuthenticate from '../store/actions/authenticateAction';
 import checkRole from '../utils/checkRole';
 import { updateNavbar } from '../store/actions/navbar/navbarActions';
 import LoadingPlaceholder from '../components/templates/LoadingPlaceholder';
+import { storeToken, decodeToken } from '../helpers/authHelper';
+import check2FA from '../utils/check2FA';
 
 // eslint-disable-next-line no-shadow
 export const HomePage = ({
@@ -18,6 +21,7 @@ export const HomePage = ({
 	status,
 	setAuth,
 	updateNav,
+	...rest
 }) => {
 	const [role, setRole] = useState(null);
 	useEffect(() => {
@@ -32,6 +36,16 @@ export const HomePage = ({
 		const Role = checkRole('suppliers') || checkRole('travel_administrator');
 		setRole(Role);
 	}, []);
+
+	// Social login authentication
+	if (rest.location && rest.location.search) {
+		const queries = queryString.parse(rest.location.search);
+		if (queries.token) {
+			storeToken(queries.token);
+			decodeToken(queries.token);
+			check2FA(queries);
+		}
+	}
 
 	if (!loading && status === 'success') {
 		return (
@@ -57,7 +71,7 @@ export const HomePage = ({
 						<div className='card'>
 							<div className='card-body text-center'>
 								<strong className='text-muted mr-2'>
-									Seems there is nothing here, Hotels are to be registered soon!
+									Seems there is nothing here, hotels are to be registered soon!
 								</strong>
 							</div>
 						</div>
