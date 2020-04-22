@@ -4,6 +4,7 @@ import {
 	SEND_TWO_FACTOR_TEXT,
 	SET_TWO_FACTOR_AUTH,
 	VERIFY_TWO_FACTOR_AUTH,
+	RESET_TWO_FACTOR_STATE,
 } from '../actions/types';
 
 const initialState = {
@@ -22,6 +23,8 @@ export default (state = initialState, { type, payload }) => {
 		case DISABLE_TWO_FACTOR_AUTH:
 		case SEND_TWO_FACTOR_TEXT:
 			return payload;
+		case RESET_TWO_FACTOR_STATE:
+			return initialState;
 		default:
 			return state;
 	}
